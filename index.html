@@ -179,10 +179,15 @@ body.tone-light .card,body.tone-light .grid2 div,body.tone-light .stats div{back
 .panel.act .card-wrap{clip-path:inset(0 0 0 0)}
 .eyebrow::after{content:"";display:inline-block;width:9px;height:15px;background:var(--lime);animation:blink 1s steps(1) infinite;margin-inline-start:2px}
 @keyframes blink{50%{opacity:0}}
-.hero h1 img{animation:flick 2.4s steps(1) 1}
-@keyframes flick{0%,8%,16%{opacity:0}4%,12%,20%,100%{opacity:1}}
+.hero h1 img{animation:logoIn 1.5s steps(14) .25s both,logoGlow 3.2s ease-in-out 1.9s infinite}
+@keyframes logoIn{0%{opacity:0;transform:translateY(46px) scale(.55) rotate(-4deg);filter:brightness(2.4)}45%{opacity:1;transform:translateY(-10px) scale(1.08) rotate(1.5deg);filter:brightness(1.6)}70%{transform:translateY(3px) scale(.97) rotate(-.5deg);filter:brightness(1.15)}100%{opacity:1;transform:none;filter:none}}
+@keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(203,210,140,0))}50%{filter:drop-shadow(0 0 22px rgba(203,210,140,.55))}}
+.hero .latin{animation:latinIn .9s steps(9) 1.2s both}
+@keyframes latinIn{from{opacity:0;letter-spacing:1.4em}to{opacity:1}}
+.brand img{animation:brandIn .8s steps(8) .1s both}
+@keyframes brandIn{from{opacity:0;transform:translateY(-12px) scale(.7)}to{opacity:1;transform:none}}
 .stats b{font-variant-numeric:tabular-nums}
-@media(prefers-reduced-motion:reduce){.panel .txt>*,.panel .card-wrap{transition:none!important;clip-path:none!important;opacity:1!important}.eyebrow::after,.hero h1 img{animation:none}}
+@media(prefers-reduced-motion:reduce){.panel .txt>*,.panel .card-wrap{transition:none!important;clip-path:none!important;opacity:1!important}.eyebrow::after,.hero h1 img,.hero .latin,.brand img{animation:none!important}}
 
 /* typewriter: letters appear one by one, layout stays still */
 x-off{color:transparent}
@@ -309,6 +314,9 @@ x-tw.cur x-on::after{display:none}
 .ptoast.on{opacity:1;transform:translate(-50%,0)}
 .phone .scr .hit{position:absolute;z-index:5;border-radius:12px!important;background:#d4db8f55;pointer-events:none;animation:hit .45s ease forwards}
 @keyframes hit{from{opacity:1}to{opacity:0}}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}.ctas .cta{margin-top:20px}
+.cta.cta2{background:transparent;color:var(--lime);border-color:var(--lime)!important;box-shadow:6px 6px 0 rgba(203,210,140,.25)!important}
+.cta.cta2:hover{background:rgba(203,210,140,.1)}
 /* cards sit right beside the text */
 @media(min-width:821px){.panel{grid-template-columns:minmax(0,600px) minmax(0,330px) 1fr;gap:56px}.panel .card-wrap{grid-column:2;align-self:center}.panel .phone{margin-inline-start:0}}
 </style>
@@ -503,7 +511,7 @@ x-tw.cur x-on::after{display:none}
  <p class="lead">هذي نهاية القصة اللي نبيها لكل طلعة: الشلة اتفقت، والمقاعد جنب بعض، وكل واحد دفع حصته.</p>
  <div class="box"><b>اختبار المستخدمين</b><span>نختبر البروتوتايب مع ٥ مستخدمين (وما يقل عن ٤) حسب توصية Nielsen Norman Group. بنوثّق المهمة، ووين تلخبطوا، ووش عدّلنا، ولا نكتب نتائج ما صارت.</span></div>
  <div class="box"><b>وش تعلّمنا</b><span>البحث يقود التصميم، والوايرفريم قبل الألوان، ونظام التصميم يخلي التعديل بضغطة، والبروتوتايب يكشف اللي ما يبان.</span></div>
- <a class="cta" href="https://www.behance.net/gallery/258534651" target="_blank" rel="noopener">شوف المشروع في بيهانس ←</a>
+ <div class="ctas"><a class="cta" href="https://lammaapp.lovable.app" target="_blank" rel="noopener">جرّب تطبيق لمّة ←</a><a class="cta cta2" href="https://www.behance.net/gallery/258534651" target="_blank" rel="noopener">شوف المشروع في بيهانس ←</a></div>
  <p class="team">أمل الصيعري · سحر الهويمل · رغد أحمد · عبدالرحمن الدعدعي · محمد ممدوح</p>
 </div></section>
 </main>
